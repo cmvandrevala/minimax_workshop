@@ -38,7 +38,6 @@ defmodule MinimaxWorkshopTest do
   end
 
   test "it returns the score of a game with four moves and only the minimizer gets to move" do
-    # Without even realizing it, we have already covered games that are deeper than two levels!
     leaf_1 = %TreeNode{score: 1}
     leaf_2 = %TreeNode{score: 0}
     leaf_3 = %TreeNode{score: 2}
@@ -50,5 +49,14 @@ defmodule MinimaxWorkshopTest do
     child = %TreeNode{children: [grandchild_1, grandchild_2]}
     parent = %TreeNode{children: [child]}
     assert MinimaxWorkshop.score(parent) == -5
+  end
+
+  test "it returns the score of a game with one move and two possible end states" do
+    # Again, the order of the child nodes might matter!
+    # Make sure your test fails before writing code!
+    child_one = %TreeNode{score: 0}
+    child_two = %TreeNode{score: 1}
+    parent = %TreeNode{children: [child_one, child_two]}
+    assert MinimaxWorkshop.score(parent) == 1
   end
 end
