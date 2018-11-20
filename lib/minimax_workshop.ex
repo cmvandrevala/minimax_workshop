@@ -17,7 +17,7 @@ defmodule MinimaxWorkshop do
 
   defp minimize(node) do
     if node.score == nil do
-      maximize(List.first(node.children))
+      Enum.max(Enum.map(node.children, &maximize/1))
     else
       node.score
     end
