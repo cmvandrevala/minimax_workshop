@@ -1,27 +1,17 @@
 defmodule MinimaxWorkshop do
+  require Integer
   def score(node), do: score(node, 0)
 
   def score(node, level) do
-    if node.score == nil do
-      Enum.max(Enum.map(node.children, &maximize(&1, level + 1)))
-    else
-      node.score
-    end
-  end
+    cond do
+      is_nil(node.score) && Integer.is_even(level) ->
+        Enum.max(Enum.map(node.children, &score(&1, level + 1)))
 
-  defp maximize(node, level) do
-    if node.score == nil do
-      Enum.min(Enum.map(node.children, &minimize(&1, level + 1)))
-    else
-      node.score
-    end
-  end
+      is_nil(node.score) && Integer.is_odd(level) ->
+        Enum.min(Enum.map(node.children, &score(&1, level + 1)))
 
-  defp minimize(node, level) do
-    if node.score == nil do
-      Enum.max(Enum.map(node.children, &maximize(&1, level + 1)))
-    else
-      node.score
+      true ->
+        node.score
     end
   end
 end
