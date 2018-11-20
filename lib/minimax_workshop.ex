@@ -7,11 +7,9 @@ defmodule MinimaxWorkshop do
     end
   end
 
-  # We introduce some duplication here to separate the differing behaviours between max and min
-
   defp maximize(node) do
     if node.score == nil do
-      minimize(List.first(node.children))
+      Enum.min(Enum.map(node.children, &minimize/1))
     else
       node.score
     end
