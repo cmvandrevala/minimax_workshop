@@ -1,21 +1,25 @@
-# MinimaxWorkshop
+# Minimax Workshop
 
-**TODO: Add description**
+This is the source code that will accompany my slides for the minimax workshop. Although this particular project is written in Elixir, you can certainly write the minimax algorithm in any language of your choice.
 
-## Installation
+## Setting Up the Project
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `minimax_workshop` to your list of dependencies in `mix.exs`:
+1. Install [Elixir](https://elixir-lang.org/install.html) on your system.
+1. Clone this repo
+1. Run `mix deps.get`
 
-```elixir
-def deps do
-  [
-    {:minimax_workshop, "~> 0.1.0"}
-  ]
-end
+## Viewing the Source Code
+
+I have tried to break apart each step of building the minimax algorithm on a commit-by-commit basis. If you want to go to a specific step, you can use:
+
+```
+git checkout <COMMIT_HASH>
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/minimax_workshop](https://hexdocs.pm/minimax_workshop).
+## Running the Tests
 
+You can run the test suite via mix:
+
+```
+mix test
+```
